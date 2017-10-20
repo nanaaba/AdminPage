@@ -35,9 +35,7 @@
         </div>
 
         <div class="row">
-            <?php
-            print_r($promodata);
-            ?>
+           
 
             <div class="col-sm-12">
                 <div class="panel panel-default panel-border-color panel-border-color-primary">

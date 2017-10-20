@@ -242,7 +242,7 @@ class ProductController extends Controller {
                     ],
                     [
                         'name' => 'expiryDate',
-                        'contents' => $data['enddate']
+                        'contents' =>  date("Y-m-d", strtotime($data['enddate']) )
                     ]
                 ],
             ]);

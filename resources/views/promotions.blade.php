@@ -208,7 +208,7 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                $('.loader').removeClass('be-loading-active');
+               
                 console.log('server data :' + data);
                 var status = data.status;
                 if (status == 0) {
@@ -219,12 +219,13 @@
                     $('#successdiv').show();
                     $('#errordiv').hide();
                     getPromotions();
-
+                    $('.loader').removeClass('be-loading-active');
                 }
                 if (status == 1) {
                     $('.feedback').html(data.message);
                     $('#errordiv').show();
                     $('#successdiv').hide();
+                     $('.loader').removeClass('be-loading-active');
                 }
 
             }
