@@ -76,5 +76,9 @@ $(document).ready(function () {
     prettyPrint();
 });
 
+function invoiceprint() {
+    window.print();
+}
+
 
 </script>  

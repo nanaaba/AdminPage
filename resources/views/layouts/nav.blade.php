@@ -18,6 +18,9 @@
                                 <li class="{{ Request::is('product/new') ? 'active' : '' }}">
                                     <a href="{{ url('product/new') }}" class="menu-item">New Product</a>
                                 </li>
+                                 <li class="{{ Request::is('product/bulk') ? 'active' : '' }}">
+                                    <a href="{{ url('product/bulk') }}" class="menu-item">Bulk Products</a>
+                                </li>
                                 <li class="{{ Request::is('product/all') ? 'active' : '' }}">
                                     <a href="{{ url('product/all') }}" class="menu-item">All Products</a>
                                 </li>
@@ -33,26 +36,9 @@
                         </li>
 
 
-
-
-                        <li class="parent  {{ Request::is('orders') ? 'active' : '' }}"><a href="#"><i class="icon mdi mdi-outlook"></i><span>Orders</span></a>
-                            <ul class="sub-menu">
-
-                                <li class="{{ Request::is('orders/pending') ? 'active' : '' }}">
-                                    <a href="{{ url('orders/pending') }}" class="menu-item">Pending Orders</a>
-                                </li>
-                                <li class="{{ Request::is('orders/processed') ? 'active' : '' }}">
-                                    <a href="{{ url('orders/processed') }}" class="menu-item">Processed Orders</a>
-                                </li>
-                                <li class="{{ Request::is('orders/shipped') ? 'active' : '' }}">
-                                    <a href="{{ url('orders/shipped') }}" class="menu-item">Shipped Orders</a>
-                                </li>
-                                <li class="{{ Request::is('orders/delievered') ? 'active' : '' }}">
-                                    <a href="{{ url('orders/delievered') }}" class="menu-item">Delivered Orders</a>
-                                </li>
-
-                            </ul>
+                        <li class="{{ Request::is('orders') ? 'active' : '' }}"><a href="{{ url('orders') }}"><i class="icon mdi mdi-android"></i><span>Orders</span></a>
                         </li>
+
 
                         <li class="parent  {{ Request::is('users*') ? 'active' : '' }}"><a href="#"><i class="icon mdi mdi-account"></i><span>User Management</span></a>
                             <ul class="sub-menu">

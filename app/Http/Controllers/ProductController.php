@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use App\Http\Controllers\CategoryController;
+use Excel;
 
 class ProductController extends Controller {
 
@@ -28,17 +30,24 @@ class ProductController extends Controller {
         return view('promotions');
     }
 
+    public function uploadproducts() {
+        $categories = new CategoryController();
+        $cat = $categories->getAllCategories();
+        $allcategories = json_decode($cat, true);
+        return view('uploadproducts')->with('categories', $allcategories['data']);
+    }
+
     public function showpromotiondetail($promoid) {
 
         $promoinfo = $this->getPromotionDetail($promoid);
-        return view('promotiondetail')->with('promodata',$promoinfo);
+        return view('promotiondetail')->with('promodata', $promoinfo);
     }
 
-     public function getPromotionDetail($promoid) {
+    public function getPromotionDetail($promoid) {
 
         $url = config('constants.TEST_URL');
 
-        $baseurl = $url . '/promotions/'.$promoid;
+        $baseurl = $url . '/promotions/' . $promoid;
 
         $client = new Client([
             'headers' => [
@@ -50,7 +59,7 @@ class ProductController extends Controller {
             $response = $client->request('GET', $baseurl);
 
             $body = $response->getBody();
-            $bodyObj = json_decode($body,true); 
+            $bodyObj = json_decode($body, true);
             if ($response->getStatusCode() == 200) {
 
                 return $bodyObj['data'];
@@ -62,8 +71,6 @@ class ProductController extends Controller {
         }
     }
 
-    
-    
     public function getAllBanners() {
         $url = config('constants.TEST_URL');
 
@@ -242,7 +249,7 @@ class ProductController extends Controller {
                     ],
                     [
                         'name' => 'expiryDate',
-                        'contents' =>  date("Y-m-d", strtotime($data['enddate']) )
+                        'contents' => date("Y-m-d", strtotime($data['enddate']))
                     ]
                 ],
             ]);
@@ -403,7 +410,7 @@ class ProductController extends Controller {
             ],
         ]);
 
- $type = $data['type'];
+        $type = $data['type'];
         if ($type == "category") {
             $identifier = $data['categories'];
         }
@@ -499,7 +506,7 @@ class ProductController extends Controller {
     public function showproductdetail($itemid) {
 
         $itemdata = $this->getItemDetail($itemid);
-       // print_r($itemdata);
+        // print_r($itemdata);
         return view('itemdetail')->with('itemdata', $itemdata);
     }
 
@@ -875,6 +882,90 @@ class ProductController extends Controller {
             $response = $client->request('DELETE', $baseurl);
 
             $body = $response->getBody();
+
+            if ($response->getStatusCode() == 200) {
+
+                return $body;
+            }
+        } catch (RequestException $e) {
+            return 'Http Exception : ' . $e->getMessage();
+        } catch (Exception $e) {
+            return 'Internal Server Error:' . $e->getMessage();
+        }
+    }
+
+//    public function readProductsData(Request $request) {
+//
+//        $category = $request['category'];
+//        if ($request->file('productfile')) {
+//            $productfile = file_get_contents($_FILES['productfile']['tmp_name']);
+//            $file = Input::file('report');
+//        }
+//    }
+
+    public function readProductsData(Request $request) {
+
+
+        if ($request->hasFile('productfile')) {
+
+            $path = $request->file('productfile')->getRealPath();
+
+
+            $data = Excel::load($path, function($reader) {
+                        // Skip 10 results with limit, but return all other rows
+                        //$reader->limitRows(false, 10);
+                        $reader->takeRows(10);
+                    })->get();
+
+
+            return $data;
+            if (!empty($data) && $data->count()) {
+
+
+                foreach ($data->toArray() as $key => $value) {
+
+                    if (!empty($value)) {
+
+                        foreach ($value as $v) {
+
+                            $insert[] = ['title' => $v['title'], 'description' => $v['description']];
+                        }
+                    }
+                }
+            }
+        }
+
+
+        return back()->with('error', 'Please Check your file, Something is wrong there.');
+    }
+
+    public function saveBulkProducts(Request $request) {
+
+        $data = $request->all();
+        $productArray = $data['productdata'];
+     $feedback =   $this->saveBulkProductServer($productArray);
+     return $feedback;
+    }
+
+    public function saveBulkProductServer($productArray) {
+
+        $url = config('constants.TEST_URL');
+
+        $baseurl = $url . 'items/bulk';
+
+        $client = new Client([
+            'headers' => [
+                'Accept' => 'application/json'
+            ],
+        ]);
+
+
+        try {
+
+            $response = $client->request('POST', $baseurl, ['json' => $productArray]);
+
+            $body = $response->getBody();
+            //$bodyObj = json_decode($body);
 
             if ($response->getStatusCode() == 200) {
 

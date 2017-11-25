@@ -126,8 +126,8 @@
                                     foreach ($promodata[0]['items'] as $value) {
                                         echo '<tr>'
                                         . '<td><img src="http://tfs.knust.edu.gh/ecommerce/images/' . $value['bannerUrl'] . '"  height="20" width="20" alt="Avatar"></td>'
-                                        . '<td>' . $value['name'] . '</td>'
-                                        . '<td><a  href="#" onclick="removeItem(' . value['itemID'] . ')" type="button" class="icon btn btn-outline-info btn-sm  col-sm-6 btn-edit editBtn" ><i title ="Delete" class="mdi mdi-delete""></i><span class="hidden-md hidden-sm hidden-xs"> </span></a></td>'
+                                        . '<td>' . $value['title'] . '</td>'
+                                        . '<td><a  href="#" onclick="removeItem(' . $value['itemID'] . ')" type="button" class="icon btn btn-outline-info btn-sm  col-sm-6 btn-edit editBtn" ><i title ="Delete" class="mdi mdi-delete""></i><span class="hidden-md hidden-sm hidden-xs"> </span></a></td>'
                                         . '</tr>';
                                     }
                                 }
@@ -160,8 +160,8 @@
                                     foreach ($promodata[0]['categories'] as $value) {
                                         echo '<tr>'
                                         . '<td><img src="http://tfs.knust.edu.gh/ecommerce/images/' . $value['bannerUrl'] . '"  height="20" width="20" alt="Avatar"></td>'
-                                        . '<td>' . $value['name'] . '</td>'
-                                        . '<td><a  href="#" onclick="removeItem(' . value['categoryD'] . ')" type="button" class="icon btn btn-outline-info btn-sm  col-sm-6 btn-edit editBtn" ><i title ="Delete" class="mdi mdi-delete""></i><span class="hidden-md hidden-sm hidden-xs"> </span></a></td>'
+                                        . '<td>' . $value['title'] . '</td>'
+                                        . '<td><a  href="#" onclick="removeItem(' . $value['itemID'] . ')" type="button" class="icon btn btn-outline-info btn-sm  col-sm-6 btn-edit editBtn" ><i title ="Delete" class="mdi mdi-delete""></i><span class="hidden-md hidden-sm hidden-xs"> </span></a></td>'
                                         . '</tr>';
                                     }
                                 }

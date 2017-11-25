@@ -19,11 +19,11 @@ Route::get('/', function () {
 Route::get('dashboard', 'DashboardController@showdashboard');
 Route::get('category', 'CategoryController@showcategory');
 Route::get('product/new', 'ProductController@showproduct');
+Route::get('product/bulk', 'ProductController@uploadproducts');
+
 Route::get('product/all', 'ProductController@showproducts');
-Route::get('orders/pending', 'OrderController@showpending');
-Route::get('orders/processed', 'OrderController@showprocessed');
-Route::get('orders/shipped', 'OrderController@showshipped');
-Route::get('orders/delievered', 'OrderController@showdeleivered');
+Route::get('orders', 'OrderController@showorders');
+
 Route::get('users/customers', 'UserController@showcustomers');
 Route::get('users/system', 'UserController@showsystemusers');
 Route::get('product/detail/{itemid}', 'ProductController@showproductdetail');
@@ -39,7 +39,12 @@ Route::get('promotions', 'ProductController@showpromotions');
 
 //apis  saveitem
 
-//products
+//orderinformation
+Route::get('getorders/{ordertype}', 'OrderController@getOrdertypeOrders');
+Route::get('orderinformation/{orderno}', 'OrderController@getOrderDetail');
+
+
+//uploadbulkproducts
 Route::get('product/allitems', 'ProductController@getAllItems');
 Route::post('product/saveitem', 'ProductController@addNewItem');
 Route::post('product/updateitem', 'ProductController@updateItem');
@@ -47,10 +52,10 @@ Route::delete('product/deleteitem/{itemid}', 'ProductController@deleteItem');
 Route::get('product/featureditems', 'ProductController@getFeaturedItems');
 Route::post('product/addfeatureditem', 'ProductController@addfeaturedItems');
 Route::delete('product/removefeatured/{itemid}', 'ProductController@removeFeaturedItem');
+Route::post('product/uploadbulkproducts', 'ProductController@readProductsData');
+Route::post('product/savebulkproducts', 'ProductController@saveBulkProducts');
 
-//addfeatureditem
-//removefeatured
-//categories
+//
 Route::get('category/all', 'CategoryController@getAllCategories');
 Route::post('category/save', 'CategoryController@addCategory');
 Route::delete('category/deletecategory/{itemid}', 'CategoryController@deleteCategory');
