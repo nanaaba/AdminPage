@@ -58,7 +58,7 @@
                                     foreach ($orderinfo['items'] as $value) {
                                         echo '  <tr>
                                        <td class="text-center">
-                                            <img class="img-thumbnail img-responsive" style="height:50px;width:50px;" src="http://tfs.knust.edu.gh/ecommerce/images/' . $value['iconUrl'] . '"></td>
+                                            <img class="img-thumbnail img-responsive" style="height:50px;width:50px;" src="http://18.217.149.24/ecommerce/images/' . $value['iconUrl'] . '"></td>
                                     <td class="descriptiion">' . $value['name'] . '</td>
                                     <td >' . $value['quantity'] . '</td>
                                     <td class="amount">' .round($value['promoPrice'],2) . '</td>

@@ -174,7 +174,10 @@
     getBanners();
 
     $('.loader').addClass('be-loading-active');
+<?php
+$url = config('constants.TEST_URL');
 
+?>
     function getBanners() {
         $.ajax({
             url: "{{url('banner/all')}}",
@@ -195,7 +198,7 @@
                         var j = -1;
                         var r = new Array();
                         // represent columns as array
-                        r[++j] = '<td class="user-avatar"> <img src="http://tfs.knust.edu.gh/ecommerce/images/' + value.bannerUrl + '"  height="50" width="50" alt="Avatar"></td>';
+                        r[++j] = '<td class="user-avatar"> <img src="<?php echo $url?>/images/' + value.bannerUrl + '"  height="50" width="50" alt="Avatar"></td>';
                         r[++j] = '<td class="subject"> ' + value.title + '</td>';
                         r[++j] = '<td class="subject">' + value.type + '</td>';
 

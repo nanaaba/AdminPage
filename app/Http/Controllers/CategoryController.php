@@ -27,7 +27,7 @@ class CategoryController extends Controller {
 
 
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = 'tfs.knust.edu.gh/ecommerce/categories';
+        $baseurl = '18.217.149.24/ecommerce/categories';
 
 
 
@@ -182,7 +182,7 @@ class CategoryController extends Controller {
 
 
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = 'tfs.knust.edu.gh/ecommerce/categories';
+        $baseurl = '18.217.149.24/ecommerce/categories';
 
 
 

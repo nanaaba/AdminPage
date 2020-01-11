@@ -123,7 +123,10 @@
         });
     });
 
+<?php
+$url = config('constants.TEST_URL');
 
+?>
     function getProducts() {
         $('.loader').addClass('be-loading-active');
         $.ajax({
@@ -150,7 +153,7 @@
                         var j = -1;
                         var r = new Array();
                         // represent columns as array
-                        r[++j] = '<td class="user-avatar"> <img src="http://tfs.knust.edu.gh/ecommerce/images/' + value.iconUrl + '"  height="20" width="20" alt="Avatar"></td>';
+                        r[++j] = '<td class="user-avatar"> <img src="<?php echo $url?>/images/' + value.iconUrl + '"  height="20" width="20" alt="Avatar"></td>';
                         r[++j] = '<td class="subject"> ' + value.name + '</td>';
                         r[++j] = '<td class="subject">' + value.category + '</td>';
                         r[++j] = '<td class="subject">' + value.price + '</td>';

@@ -7,7 +7,7 @@
  */
 
 return [
-	
-	'TEST_URL' => 'tfs.knust.edu.gh/ecommerce/'
+	//18.217.149.24
+	'TEST_URL' => 'http://52.207.165.129/koalaapi'
 	
 ];

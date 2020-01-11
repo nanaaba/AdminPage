@@ -15,7 +15,7 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <input  type="email" name="username" placeholder="Email" autocomplete="off" class="form-control" required>
+                    <input  type="email" name="username" placeholder="Username" autocomplete="off" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <input id="password" type="password" name="password" placeholder="Password" class="form-control" required>

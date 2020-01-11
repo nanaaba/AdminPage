@@ -16,6 +16,7 @@ Route::get('/', function () {
     return view('login');
  
 });
+Route::post('authenticateuser', 'LoginController@authenticateuser');
 Route::get('dashboard', 'DashboardController@showdashboard');
 Route::get('category', 'CategoryController@showcategory');
 Route::get('product/new', 'ProductController@showproduct');

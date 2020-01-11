@@ -139,7 +139,10 @@
     var datatable = $('#categoryTbl').DataTable();
 
     getPromotions();
+<?php
+$url = config('constants.TEST_URL');
 
+?>
     $('.loader').addClass('be-loading-active');
 
     function getPromotions() {
@@ -163,7 +166,7 @@
                         var j = -1;
                         var r = new Array();
                         // represent columns as array
-                        r[++j] = '<td class="user-avatar"> <img src="http://tfs.knust.edu.gh/ecommerce/images/' + value.bannerUrl + '"  height="50" width="50" alt="Avatar"></td>';
+                        r[++j] = '<td class="user-avatar"> <img src="<?php echo $url?>/images/' + value.bannerUrl + '"  height="50" width="50" alt="Avatar"></td>';
                         r[++j] = '<td class="subject"> ' + value.name + '</td>';
                         r[++j] = '<td class="subject"> ' + value.dateCreated + '</td>';
                         r[++j] = '<td class="subject">' + value.expiryDate + '</td>';

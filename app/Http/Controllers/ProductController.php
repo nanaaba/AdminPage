@@ -135,7 +135,7 @@ class ProductController extends Controller {
 
 
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = 'tfs.knust.edu.gh/ecommerce/banners';
+        $baseurl = '18.217.149.24/ecommerce/banners';
 
 
 
@@ -170,7 +170,6 @@ class ProductController extends Controller {
 
             $response = $client->request('POST', $baseurl, [
                 'multipart' => [
-
                     [
                         'name' => 'banner',
                         'contents' => $bannerfile,
@@ -213,7 +212,7 @@ class ProductController extends Controller {
 
 
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = 'tfs.knust.edu.gh/ecommerce/promotions';
+        $baseurl = '18.217.149.24/ecommerce/promotions';
 
 
 
@@ -237,7 +236,6 @@ class ProductController extends Controller {
 
             $response = $client->request('POST', $baseurl, [
                 'multipart' => [
-
                     [
                         'name' => 'banner',
                         'contents' => $bannerfile,
@@ -332,9 +330,11 @@ class ProductController extends Controller {
 
         $data = $request->all();
 
+        $url = config('constants.TEST_URL');
+
 
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = 'tfs.knust.edu.gh/ecommerce/promotions';
+        $baseurl = $url . '/promotions';
 
 
 
@@ -358,7 +358,6 @@ class ProductController extends Controller {
 
             $response = $client->request('PUT', $baseurl, [
                 'multipart' => [
-
                     [
                         'name' => 'banner',
                         'contents' => $bannerfile,
@@ -400,7 +399,8 @@ class ProductController extends Controller {
 
         $data = $request->all();
 
-        $baseurl = 'tfs.knust.edu.gh/ecommerce/promotions/items';
+        $url = config('constants.TEST_URL');
+        $baseurl = $url . '/promotions/items';
 
 
 
@@ -434,7 +434,6 @@ class ProductController extends Controller {
 
             $response = $client->request('POST', $baseurl, [
                 'multipart' => [
-
                     [
                         'name' => 'banner',
                         'contents' => $bannerfile,
@@ -517,7 +516,7 @@ class ProductController extends Controller {
 
 
         $url = config('constants.TEST_URL');
-        $baseurl = $url . 'items';
+        $baseurl = $url . '/items';
 
 
 
@@ -610,7 +609,7 @@ class ProductController extends Controller {
 
         $url = config('constants.TEST_URL');
 
-        $baseurl = $url . 'items';
+        $baseurl = $url . '/items';
 
         $client = new Client([
             'headers' => [
@@ -704,7 +703,7 @@ class ProductController extends Controller {
 
 
         $url = config('constants.TEST_URL');
-        $baseurl = $url . 'items';
+        $baseurl = $url . '/items';
 
 
 
@@ -806,7 +805,7 @@ class ProductController extends Controller {
 
         $url = config('constants.TEST_URL');
 
-        $baseurl = $url . 'items/featured';
+        $baseurl = $url . '/items/featured';
 
         $client = new Client([
             'headers' => [
@@ -835,7 +834,7 @@ class ProductController extends Controller {
 
         $url = config('constants.TEST_URL');
 
-        $baseurl = $url . 'items/featured';
+        $baseurl = $url . '/items/featured';
 
         $client = new Client([
             'headers' => [
@@ -943,15 +942,15 @@ class ProductController extends Controller {
 
         $data = $request->all();
         $productArray = $data['productdata'];
-     $feedback =   $this->saveBulkProductServer($productArray);
-     return $feedback;
+        $feedback = $this->saveBulkProductServer($productArray);
+        return $feedback;
     }
 
     public function saveBulkProductServer($productArray) {
 
         $url = config('constants.TEST_URL');
 
-        $baseurl = $url . 'items/bulk';
+        $baseurl = $url . '/items/bulk';
 
         $client = new Client([
             'headers' => [

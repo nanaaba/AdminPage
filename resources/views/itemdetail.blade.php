@@ -108,7 +108,7 @@
                                             </label>
                                         </div>
 
-                                        <img src="http://tfs.knust.edu.gh/ecommerce/images/{{$itemdata->iconUrl}}" height="50" width="50" alt="No image" />
+                                        <img src="http://18.217.149.24/ecommerce/images/{{$itemdata->iconUrl}}" height="50" width="50" alt="No image" />
                                     </div>
                                 </div>
 
@@ -121,7 +121,7 @@
                                             <label for="file-1" class="btn-default">  </label>
                                         </div>
 
-                                        <img src="http://tfs.knust.edu.gh/ecommerce/images/{{$itemdata->bannerUrl}}" height="50" width="50" alt="No image" />
+                                        <img src="http://18.217.149.24/ecommerce/images/{{$itemdata->bannerUrl}}" height="50" width="50" alt="No image" />
 
                                     </div>
                                 </div>

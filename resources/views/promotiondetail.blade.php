@@ -70,7 +70,7 @@
                                         </div>
                                     </div>
 
-                                    <img src="http://tfs.knust.edu.gh/ecommerce/images/{{$promodata[0]['bannerUrl']}}" height="50" width="50" alt="No image" />
+                                    <img src="http://18.217.149.24/ecommerce/images/{{$promodata[0]['bannerUrl']}}" height="50" width="50" alt="No image" />
 
                                 </div>
                                 <div class="row xs-pt-15">
@@ -125,7 +125,7 @@
 
                                     foreach ($promodata[0]['items'] as $value) {
                                         echo '<tr>'
-                                        . '<td><img src="http://tfs.knust.edu.gh/ecommerce/images/' . $value['bannerUrl'] . '"  height="20" width="20" alt="Avatar"></td>'
+                                        . '<td><img src="http://18.217.149.24/ecommerce/images/' . $value['bannerUrl'] . '"  height="20" width="20" alt="Avatar"></td>'
                                         . '<td>' . $value['title'] . '</td>'
                                         . '<td><a  href="#" onclick="removeItem(' . $value['itemID'] . ')" type="button" class="icon btn btn-outline-info btn-sm  col-sm-6 btn-edit editBtn" ><i title ="Delete" class="mdi mdi-delete""></i><span class="hidden-md hidden-sm hidden-xs"> </span></a></td>'
                                         . '</tr>';
@@ -159,7 +159,7 @@
                                 if (sizeof($promodata[0]['categories']) > 0) {
                                     foreach ($promodata[0]['categories'] as $value) {
                                         echo '<tr>'
-                                        . '<td><img src="http://tfs.knust.edu.gh/ecommerce/images/' . $value['bannerUrl'] . '"  height="20" width="20" alt="Avatar"></td>'
+                                        . '<td><img src="http://18.217.149.24/ecommerce/images/' . $value['bannerUrl'] . '"  height="20" width="20" alt="Avatar"></td>'
                                         . '<td>' . $value['title'] . '</td>'
                                         . '<td><a  href="#" onclick="removeItem(' . $value['itemID'] . ')" type="button" class="icon btn btn-outline-info btn-sm  col-sm-6 btn-edit editBtn" ><i title ="Delete" class="mdi mdi-delete""></i><span class="hidden-md hidden-sm hidden-xs"> </span></a></td>'
                                         . '</tr>';
