@@ -132,10 +132,11 @@ class ProductController extends Controller {
 
 
         $data = $request->all();
+        $url = config('constants.TEST_URL');
 
 
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = '18.217.149.24/ecommerce/banners';
+        $baseurl = $url.'/banners';
 
 
 
@@ -210,9 +211,10 @@ class ProductController extends Controller {
 
         $data = $request->all();
 
+  $url = config('constants.TEST_URL');
 
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = '18.217.149.24/ecommerce/promotions';
+        $baseurl = $url.'/promotions';
 
 
 

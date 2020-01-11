@@ -25,9 +25,10 @@ class CategoryController extends Controller {
 
         $data = $request->all();
 
+        $url = config('constants.TEST_URL');
 
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = '18.217.149.24/ecommerce/categories';
+        $baseurl = $url.'/categories';
 
 
 
@@ -180,9 +181,11 @@ class CategoryController extends Controller {
 
         $data = $request->all();
 
+        $url = config('constants.TEST_URL');
 
+      
         // $url = Config::get('constants.TEST_URL');
-        $baseurl = '18.217.149.24/ecommerce/categories';
+        $baseurl = $url .'/categories';
 
 
 
